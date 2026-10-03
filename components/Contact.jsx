@@ -5,6 +5,7 @@ import { offices, email, phone, social } from '../lib/content';
 export default function Contact() {
   const [sent, setSent] = useState(false);
 
+  // No backend in this demo: the form opens the visitor's email app with the message filled in.
   const onSubmit = (e) => {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
@@ -17,19 +18,19 @@ export default function Contact() {
     <section id="contact" className="container sec">
       <div className="grid g-320 gap48">
         <div>
-          <h2 className="title">Find us</h2>
+          <h2 className="title reveal">Find us</h2>
           <div className="spacer" />
           <div className="stack">
             {offices.map(([t, a]) => (
-              <div key={t} className="glass card-office">
+              <div key={t} className="glass card-office reveal">
                 <div className="bold">{t}</div>
                 <div className="muted">{a}</div>
               </div>
             ))}
           </div>
         </div>
-        <form className="glass2 card-form" onSubmit={onSubmit}>
-          <h2 className="form-title">Send us a message</h2>
+        <form className="glass2 card-form reveal" onSubmit={onSubmit}>
+          <h2 className="form-title reveal">Send us a message</h2>
           <p className="muted"><a href={`mailto:${email}`}>{email}</a> · {phone}</p>
           <div className="stack">
             <label>Full name<input name="name" type="text" /></label>
